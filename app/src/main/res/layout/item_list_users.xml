@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    app:cardCornerRadius="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green_50"
+        android:padding="8dp">
+
+        <com.github.siyamed.shapeimageview.RoundedImageView
+            android:id="@+id/iv_avatars_list"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:siBorderColor="@color/cyan_700"
+            app:siBorderWidth="2dp"
+            app:siRadius="5dp"
+            app:siSquare="true"
+            tools:ignore="ImageContrastCheck"
+            tools:src="@tools:sample/avatars" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            style="@style/ImageIcon"
+            android:contentDescription="@string/username"
+            android:src="@drawable/ic_baseline_account_circle_24"
+            app:layout_constraintStart_toEndOf="@+id/iv_avatars_list"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            style="@style/ImageIcon"
+            android:src="@drawable/ic_baseline_link_24"
+            app:layout_constraintStart_toEndOf="@+id/iv_avatars_list"
+            app:layout_constraintTop_toBottomOf="@+id/tv_username_list"
+            android:contentDescription="@string/link_url" />
+
+        <TextView
+            android:id="@+id/tv_username_list"
+            style="@style/componentText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/username" />
+
+        <TextView
+            android:id="@+id/tv_link_list"
+            style="@style/componentText"
+            android:autoLink="web"
+            android:linksClickable="true"
+            android:textColorLink="@color/blue_A7000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/tv_username_list"
+            tools:text="@string/link_url" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnShare_user_data"
+            style="@style/ButtonShare"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_avatars_list"
+            app:layout_constraintTop_toBottomOf="@+id/tv_link_list"
+            android:layout_width="wrap_content" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

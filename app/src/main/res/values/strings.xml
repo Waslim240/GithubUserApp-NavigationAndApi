@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Github User App</string>
+    <string name="username">Username</string>
+    <string name="name">Name</string>
+    <string name="location">Location</string>
+    <string name="share">Share</string>
+    <string name="repository">Repository</string>
+    <string name="company">Company</string>
+    <string name="followers">Followers</string>
+    <string name="following">Following</string>
+    <string name="github_logo">Github Logo</string>
+    <string name="github_user_details">Github User Details</string>
+    <string name="search">search</string>
+    <string name="cari_user">Cari user</string>
+    <string name="link_url">Link Url</string>
+    <string name="email">Email</string>
+    <string name="no_name">Tidak ada nama</string>
+    <string name="no_location">Tidak ada lokasi</string>
+    <string name="no_username">Tidak ada username</string>
+    <string name="no_company">Tidak ada perusahaan</string>
+    <string name="no_link">Tidak ada link</string>
+    <string name="no_email">Tidak ada email</string>
+    <string name="tab_text_1">Followers</string>
+    <string name="tab_text_2">Following</string>
+    <string name="content_tab_text">This is Tab %1$d</string>
+    <string name="data_user_tidak_ditemukan">Data user tidak ditemukan</string>
+    <string name="no_internet">Tidak ada koneksi internet</string>
+    <string name="no_data">Tidak ada data user</string>
+</resources>
