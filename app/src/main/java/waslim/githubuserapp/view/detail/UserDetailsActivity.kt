@@ -36,12 +36,34 @@ class UserDetailsActivity : AppCompatActivity() {
             binding.apply {
                 when {
                     UserDetailsResponse != null -> {
-                        if (UserDetailsResponse.name.isNullOrEmpty()) tvNameDetails.text = getString(R.string.no_name) else tvNameDetails.text = UserDetailsResponse.name
-                        if (UserDetailsResponse.location.isNullOrEmpty()) tvLocationDetail.text = getString(R.string.no_location) else tvLocationDetail.text = UserDetailsResponse.location
-                        if (UserDetailsResponse.login.isNullOrEmpty()) tvUsernameDetail.text = getString(R.string.no_username) else tvUsernameDetail.text = UserDetailsResponse.login
-                        if (UserDetailsResponse.company.isNullOrEmpty()) tvCompanyDetail.text = getString(R.string.no_company) else tvCompanyDetail.text = UserDetailsResponse.company
-                        if (UserDetailsResponse.htmlUrl.isNullOrEmpty()) tvLinkDetail.text = getString(R.string.no_link) else tvLinkDetail.text = UserDetailsResponse.htmlUrl
-                        if (UserDetailsResponse.email.isNullOrEmpty()) tvEmailDetail.text = getString(R.string.no_email) else tvEmailDetail.text = UserDetailsResponse.email
+                        when {
+                            UserDetailsResponse.name.isNullOrEmpty() -> {
+                                tvNameDetails.text = getString(R.string.no_name)
+                            }
+                            UserDetailsResponse.location.isNullOrEmpty() -> {
+                                tvLocationDetail.text = getString(R.string.no_location)
+                            }
+                            UserDetailsResponse.login.isNullOrEmpty() -> {
+                                tvUsernameDetail.text = getString(R.string.no_username)
+                            }
+                            UserDetailsResponse.company.isNullOrEmpty() -> {
+                                tvCompanyDetail.text = getString(R.string.no_company)
+                            }
+                            UserDetailsResponse.htmlUrl.isNullOrEmpty() -> {
+                                tvLinkDetail.text = getString(R.string.no_link)
+                            }
+                            UserDetailsResponse.email.isNullOrEmpty() -> {
+                                tvEmailDetail.text = getString(R.string.no_email)
+                            }
+                            else -> {
+                                tvNameDetails.text = UserDetailsResponse.name
+                                tvLocationDetail.text = UserDetailsResponse.location
+                                tvCompanyDetail.text = UserDetailsResponse.company
+                                tvLinkDetail.text = UserDetailsResponse.htmlUrl
+                                tvEmailDetail.text = UserDetailsResponse.email
+                            }
+                        }
+
                         Glide.with(applicationContext)
                             .load(UserDetailsResponse.avatarUrl)
                             .error(R.drawable.ic_baseline_error_24)

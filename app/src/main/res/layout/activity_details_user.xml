@@ -9,7 +9,8 @@
     tools:context=".view.detail.UserDetailsActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/aaa"
+        android:id="@+id/component"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -159,8 +160,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/green_100"
-        app:layout_behavior="@string/bottom_sheet_behavior"
-        app:layout_constraintTop_toBottomOf="@id/aaa">
+        app:layout_behavior="@string/bottom_sheet_behavior">
 
         <View
             android:id="@+id/view1"

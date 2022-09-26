@@ -91,62 +91,34 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun chekConnection() {
-        if (isOnline(applicationContext)) checkOrientation() else Toast.makeText(applicationContext, getString(R.string.no_internet), Toast.LENGTH_LONG).show()
+        if (isOnline(applicationContext)) setUserData() else Toast.makeText(applicationContext, getString(R.string.no_internet), Toast.LENGTH_LONG).show()
     }
 
-    private fun checkOrientation() {
-        showLoading(true)
-        return when (applicationContext.resources.configuration.orientation) {
-            Configuration.ORIENTATION_LANDSCAPE -> if (username != null) {
-                viewModelUsers.searchUser.observe(this) {
-                    if (it != null) {
-                        showLoading(false)
-                        setRecyclerList()
-                        adapterList.setUserDataList(it)
-                    } else {
-                        showLoading(false)
-                        Toast.makeText(applicationContext, getString(R.string.no_data), Toast.LENGTH_SHORT).show()
-                    }
+    private fun setUserData() {
+        if (username != null) {
+            viewModelUsers.searchUser.observe(this) {
+                if (it != null) {
+                    showLoading(false)
+                    setRecyclerList()
+                    adapterList.setUserDataList(it)
+                } else {
+                    showLoading(false)
+                    Toast.makeText(applicationContext, getString(R.string.no_data), Toast.LENGTH_SHORT).show()
                 }
-                viewModelUsers.searchUserByUsername(username.toString())
-            } else {
-                viewModelUsers.userData.observe(this) {
-                    if (it != null) {
-                        showLoading(false)
-                        setRecyclerList()
-                        adapterList.setUserDataList(it)
-                    } else {
-                        showLoading(false)
-                        Toast.makeText(applicationContext, getString(R.string.no_data), Toast.LENGTH_SHORT).show()
-                    }
-                }
-                viewModelUsers.getUserData()
             }
-            else -> if (username != null) {
-                viewModelUsers.searchUser.observe(this) {
-                    if (it != null) {
-                        showLoading(false)
-                        setRecyclerList()
-                        adapterList.setUserDataList(it)
-                    } else {
-                        showLoading(false)
-                        Toast.makeText(applicationContext, getString(R.string.no_data), Toast.LENGTH_SHORT).show()
-                    }
+            viewModelUsers.searchUserByUsername(username.toString())
+        } else {
+            viewModelUsers.userData.observe(this) {
+                if (it != null) {
+                    showLoading(false)
+                    setRecyclerList()
+                    adapterList.setUserDataList(it)
+                } else {
+                    showLoading(false)
+                    Toast.makeText(applicationContext, getString(R.string.no_data), Toast.LENGTH_SHORT).show()
                 }
-                viewModelUsers.searchUserByUsername(username.toString())
-            } else {
-                viewModelUsers.userData.observe(this) {
-                    if (it != null) {
-                        showLoading(false)
-                        setRecyclerList()
-                        adapterList.setUserDataList(it)
-                    } else {
-                        showLoading(false)
-                        Toast.makeText(applicationContext, getString(R.string.no_data), Toast.LENGTH_SHORT).show()
-                    }
-                }
-                viewModelUsers.getUserData()
             }
+            viewModelUsers.getUserData()
         }
     }
 
