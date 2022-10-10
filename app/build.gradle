@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    compileSdk 33
+    compileSdk 32
 
     defaultConfig {
         applicationId "waslim.githubuserapp"
@@ -14,7 +14,9 @@ android {
         versionCode 1
         versionName "1.0"
 
-        buildConfigField "String", "API_TOKEN", '"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"'
+        buildConfigField "String", "API_TOKEN", '"PUT YOUR TOKEN"'
+        buildConfigField "String", "BASE_URL", '"https://api.github.com/"'
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -41,7 +43,7 @@ android {
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.8.0'
-    implementation "androidx.activity:activity-ktx:1.6.0"
+    implementation "androidx.activity:activity-ktx:1.5.1"
     implementation "androidx.fragment:fragment-ktx:1.5.2"
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.1'

@@ -4,24 +4,24 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import waslim.githubuserapp.BuildConfig
 
 object ApiConfig {
 
-    private const val BASE_URL = "https://api.github.com/"
+    private const val URL = BuildConfig.BASE_URL
 
-    private  val logging : HttpLoggingInterceptor
-        get(){
-            val httpLoggingInterceptor = HttpLoggingInterceptor()
-            return httpLoggingInterceptor.apply {
-                httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
-            }
-        }
+    private val loggingInterceptor = if(BuildConfig.DEBUG) {
+        HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+    }
+    else {
+        HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE)
+    }
 
-    private val clint = OkHttpClient.Builder().addInterceptor(logging).build()
+    private val clint = OkHttpClient.Builder().addInterceptor(loggingInterceptor).build()
 
     val instance : ApiServices by lazy {
         val retrofit = Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(clint)
             .build()
